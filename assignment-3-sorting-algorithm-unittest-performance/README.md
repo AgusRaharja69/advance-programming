@@ -1,9 +1,3 @@
-# django-projects-fancy-login-py3-dj2
-A Fancy Login in DJANGO/PYTHON using bootstrap v4 and modal divs
+# sorting-unittest-performance
 
-
-You need to have DJANGO VERSION 2.XX.X and python 3.x
-
-If you get stuck in some point you can contact me with davcastroruiz through Hangouts.
-
-thanks to Keming Zhang to help me branche the code from py2 and django 1.x
+Program sorting_unittest_performance.py adalah program untuk melihat performa program, dengan library cProfile selain dapat melihat waktu tiap function berjalan namun dapat pula melihat berapa kali sebuah fungsi di panggil.
