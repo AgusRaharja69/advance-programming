@@ -4,14 +4,13 @@ class ListNode:
     """
     A node in a singly-linked list.
     """
-    def __init__(self, data=None, data1=None, next=None):
+    def __init__(self, data=None, data1=None):
         self.data = data
         self.data1 = data1
-        self.next = next
+        self.next = None
 
     def __repr__(self):
         return repr(self.data)
-
 
 class SinglyLinkedList:
     def __init__(self):
@@ -40,7 +39,24 @@ class SinglyLinkedList:
         while curr.next:
             curr = curr.next
         curr.next = ListNode(data=data, data1=data1)
-
+    
+    def mergeSorted(self, data, data1):
+        """
+        Sorted the node based on data value
+        """
+        node = ListNode(data=data, data1=data1)
+        curr = self.head
+        prev = None
+        
+        while curr is not None and curr.data < data:
+            prev = curr
+            curr = curr.next
+        if prev == None:
+            self.head = node
+        else:
+            prev.next = node
+        node.next = curr
+    
     def find(self, key):
         """
         Search for the first element with `data` matching
@@ -95,7 +111,7 @@ class SinglyLinkedList:
 
 # defind list
 list = SinglyLinkedList()
-
+list1 = SinglyLinkedList()
 #Get data
 filename = ('sepakbola-exported.csv')
 arr = pd.read_csv(filename, header = None, delimiter=';')
@@ -110,8 +126,13 @@ for i in arr:
         list.append(i[0],i[1]) 
     id += 1
 
-
-
 print('Data Source :')
 list.listprint()
+print('')
+
+#Sorted List
+for i in arr:
+	list1.mergeSorted(i[0], i[1])
+print("Sorted linked list:")
+list1.listprint()
 
